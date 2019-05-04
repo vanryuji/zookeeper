@@ -8,13 +8,12 @@ zookeeper cluster 구축<br>
 * zookeeper 3.4
 
 # Cluster setup
-### Zookeeper configuration
+### Configuration
 ```shell
 # server1, server2, server3 모두 적용
 # 자세한 configure 내용은 https://zookeeper.apache.org/doc/r3.4.14/zookeeperAdmin.html#sc_configuration 참조
 
-# conf/zoo.cfg
-
+# conf/zoo.cfg file
 tickTime=2000
 initLimit=10
 syncLimit=5
@@ -25,7 +24,19 @@ server.2=server2:2888:3888
 server.3=server3:2888:3888
 ```
 
-### Start Zookeeper
+### myid
+```shell
+# server1
+echo 1 > /tmp/zookeeper/myid
+
+# server2
+echo 2 > /tmp/zookeeper/myid
+
+# server3
+echo 3 > /tmp/zookeeper/myid
+```
+
+### Start
 ```shell
 # server1, server2, server3 모두 적용
 
